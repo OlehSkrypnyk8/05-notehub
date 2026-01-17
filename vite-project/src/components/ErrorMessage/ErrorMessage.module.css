@@ -1,0 +1,74 @@
+.error-container {
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    border-left: 4px solid;
+}
+
+.error-error {
+    background-color: #fef2f2;
+    border-left-color: #ef4444;
+    color: #7f1d1d;
+}
+
+.error-warning {
+    background-color: #fffbeb;
+    border-left-color: #f59e0b;
+    color: #78350f;
+}
+
+.error-info {
+    background-color: #eff6ff;
+    border-left-color: #3b82f6;
+    color: #1e3a8a;
+}
+
+.error-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.error-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.error-dismiss {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.error-dismiss:hover {
+    opacity: 1;
+}
+
+.error-text {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.error-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.retry-button {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.retry-button:hover {
+    background-color: #2563eb;
+}
