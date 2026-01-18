@@ -1,28 +1,26 @@
 import { useState } from "react";
-import type { FormEvent } from "react";
 import css from "./SearchBox.module.css";
 
-interface SearchBarProps {
+interface SearchBoxProps {
   readonly onSearch: (query: string) => void;
 }
 
-export default function SearchBar({ onSearch }: SearchBarProps) {
+export default function SearchBox({ onSearch }: SearchBoxProps) {
   const [query, setQuery] = useState("");
 
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    onSearch(query.trim());
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setQuery(value);
+    onSearch(value.trim());
   };
 
   return (
-    <form className={css.searchBar} onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Search notes..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        className={css.input}
-      />
-    </form>
+    <input
+      type="text"
+      placeholder="Search notes..."
+      value={query}
+      onChange={handleChange}
+      className={css.input}
+    />
   );
 }

@@ -3,13 +3,19 @@ import css from "./Pagination.module.css";
 
 interface PaginationProps {
   readonly totalPages: number;
-  readonly onPageChange: (selectedPage: number) => void;
+  readonly currentPage: number;
+  readonly onPageChange: (page: number) => void;
 }
 
-function Pagination({ totalPages, onPageChange }: PaginationProps) {
+function Pagination({
+  totalPages,
+  currentPage,
+  onPageChange,
+}: PaginationProps) {
   const handlePageChange = (selectedItem: { selected: number }) => {
     onPageChange(selectedItem.selected + 1);
   };
+
   return (
     <ReactPaginate
       previousLabel={"<"}
@@ -19,9 +25,11 @@ function Pagination({ totalPages, onPageChange }: PaginationProps) {
       marginPagesDisplayed={2}
       pageRangeDisplayed={5}
       onPageChange={handlePageChange}
+      forcePage={currentPage - 1}
       containerClassName={css.pagination}
       activeClassName={css.active}
     />
   );
 }
+
 export default Pagination;
